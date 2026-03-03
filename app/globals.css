@@ -107,7 +107,7 @@
   }
 
   .text-gradient {
-    @apply bg-gradient-to-r from-brand to-brand-300 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-brand to-brand-300 bg-clip-text text-transparent pr-[0.15em];
   }
 
   .text-gradient-rose {
