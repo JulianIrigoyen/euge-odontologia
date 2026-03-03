@@ -34,7 +34,7 @@ export default function BeforeAfter() {
           </p>
           <h2 className="heading-lg">
             Lo que dicen nuestros{' '}
-            <span className="italic text-gradient-gold">pacientes</span>
+            <span className="italic text-gradient-rose">pacientes</span>
           </h2>
           <p className="body-lg mt-4">
             Historias reales de sonrisas transformadas con Unseen.

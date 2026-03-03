@@ -2,7 +2,7 @@
 
 import { useForm } from 'react-hook-form'
 import { useState } from 'react'
-import { Send, CheckCircle, AlertCircle, Loader2 } from 'lucide-react'
+import { Send, CheckCircle, Loader2 } from 'lucide-react'
 import clsx from 'clsx'
 
 interface FormData {
@@ -14,7 +14,7 @@ interface FormData {
 }
 
 export default function ContactForm() {
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success'>('idle')
 
   const {
     register,
@@ -23,23 +23,19 @@ export default function ContactForm() {
     formState: { errors },
   } = useForm<FormData>()
 
-  const onSubmit = async (data: FormData) => {
+  const onSubmit = (data: FormData) => {
     setStatus('loading')
-    try {
-      const res = await fetch('https://formspree.io/f/xpwdjqgk', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
-      })
-      if (res.ok) {
-        setStatus('success')
-        reset()
-      } else {
-        setStatus('error')
-      }
-    } catch {
-      setStatus('error')
-    }
+    const lines = [
+      `Hola! Soy *${data.name}*`,
+      data.reason ? `Consulto por: ${data.reason}` : '',
+      data.message ? `\n${data.message}` : '',
+      `\nEmail: ${data.email}`,
+      `Tel: ${data.phone}`,
+    ].filter(Boolean)
+    const text = encodeURIComponent(lines.join('\n'))
+    window.open(`https://wa.me/5491131793649?text=${text}`, '_blank')
+    setStatus('success')
+    reset()
   }
 
   const inputClasses = (hasError: boolean) =>
@@ -214,12 +210,6 @@ export default function ContactForm() {
                   />
                 </div>
 
-                {status === 'error' && (
-                  <div className="flex items-center gap-2 rounded-lg bg-red-400/10 px-4 py-3 text-sm text-red-400">
-                    <AlertCircle size={18} />
-                    Hubo un error. Intentá de nuevo o escribinos por WhatsApp.
-                  </div>
-                )}
 
                 <button
                   type="submit"

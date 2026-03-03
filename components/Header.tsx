@@ -11,6 +11,7 @@ const navLinks = [
   { label: 'Planes', href: '#planes' },
   { label: 'Nosotros', href: '#sobre-mi' },
   { label: 'Contacto', href: '#contacto' },
+  { label: 'Ubicación', href: '#ubicacion' },
 ]
 
 export default function Header() {

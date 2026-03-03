@@ -8,6 +8,7 @@ import About from '@/components/About'
 import FAQ from '@/components/FAQ'
 import CTABanner from '@/components/CTABanner'
 import ContactForm from '@/components/ContactForm'
+import Location from '@/components/Location'
 import Footer from '@/components/Footer'
 import WhatsAppButton from '@/components/WhatsAppButton'
 
@@ -25,6 +26,7 @@ export default function Home() {
         <FAQ />
         <CTABanner />
         <ContactForm />
+        <Location />
       </main>
       <Footer />
       <WhatsAppButton />

@@ -1,12 +1,4 @@
-'use client'
-
-import dynamic from 'next/dynamic'
 import { ArrowRight } from 'lucide-react'
-
-const SmileScene = dynamic(() => import('./SmileScene'), {
-  ssr: false,
-  loading: () => null,
-})
 
 export default function Hero() {
   return (
@@ -14,22 +6,12 @@ export default function Hero() {
       id="inicio"
       className="relative flex min-h-screen items-center overflow-hidden bg-midnight-900"
     >
-      {/* 3D Smile Animation */}
-      <SmileScene />
-
       {/* Ambient glow effects */}
       <div className="pointer-events-none absolute left-1/2 top-1/3 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand/5 blur-[120px]" />
       <div className="pointer-events-none absolute bottom-0 right-0 h-[400px] w-[400px] rounded-full bg-accent/5 blur-[100px]" />
 
       {/* Subtle grid pattern */}
-      <div
-        className="pointer-events-none absolute inset-0 opacity-[0.03]"
-        style={{
-          backgroundImage:
-            'linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px)',
-          backgroundSize: '60px 60px',
-        }}
-      />
+      <div className="pointer-events-none absolute inset-0 opacity-[0.03] hero-grid" />
 
       <div className="container-narrow relative z-10 px-5 pt-24 md:px-8">
         <div className="mx-auto max-w-4xl text-center">
