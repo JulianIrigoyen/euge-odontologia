@@ -42,18 +42,24 @@ export default function ContactForm() {
     }
   }
 
+  const inputClasses = (hasError: boolean) =>
+    clsx(
+      'w-full rounded-xl border bg-white/5 px-4 py-3 text-base text-midnight-50 outline-none transition-all placeholder:text-midnight-200/30 focus:border-brand/50 focus:bg-white/[0.08] focus:ring-2 focus:ring-brand/10',
+      hasError ? 'border-red-400/50' : 'border-white/10'
+    )
+
   return (
-    <section id="contacto" className="section-padding bg-gradient-to-b from-slate-50 to-white">
+    <section id="contacto" className="section-padding bg-midnight-900">
       <div className="container-narrow">
         <div className="grid gap-16 lg:grid-cols-2">
           {/* Left: Info */}
           <div>
-            <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-brand-500">
+            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-brand">
               Contacto
             </p>
             <h2 className="heading-lg">
               Empezá tu{' '}
-              <span className="text-brand-600">transformación</span>
+              <span className="italic text-gradient">transformación</span>
             </h2>
             <p className="body-lg mt-4">
               Escribinos y te respondemos dentro de las 24hs. La primera
@@ -62,46 +68,46 @@ export default function ContactForm() {
 
             <div className="mt-10 space-y-6">
               <div>
-                <h3 className="text-sm font-semibold uppercase tracking-wider text-slate-400">
+                <h3 className="text-xs font-semibold uppercase tracking-[0.15em] text-midnight-200/40">
                   WhatsApp
                 </h3>
                 <a
                   href="https://wa.me/5491131793649"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-1 text-lg font-medium text-slate-800 transition-colors hover:text-brand-600"
+                  className="mt-1 text-lg font-medium text-midnight-50 transition-colors hover:text-brand"
                 >
                   +54 9 11 3179-3649
                 </a>
               </div>
               <div>
-                <h3 className="text-sm font-semibold uppercase tracking-wider text-slate-400">
+                <h3 className="text-xs font-semibold uppercase tracking-[0.15em] text-midnight-200/40">
                   Email
                 </h3>
                 <a
                   href="mailto:unseenaligners@gmail.com"
-                  className="mt-1 text-lg font-medium text-slate-800 transition-colors hover:text-brand-600"
+                  className="mt-1 text-lg font-medium text-midnight-50 transition-colors hover:text-brand"
                 >
                   unseenaligners@gmail.com
                 </a>
               </div>
               <div>
-                <h3 className="text-sm font-semibold uppercase tracking-wider text-slate-400">
+                <h3 className="text-xs font-semibold uppercase tracking-[0.15em] text-midnight-200/40">
                   Ubicación
                 </h3>
-                <p className="mt-1 text-lg font-medium text-slate-800">
+                <p className="mt-1 text-lg font-medium text-midnight-50">
                   Recoleta, Buenos Aires
                 </p>
               </div>
               <div>
-                <h3 className="text-sm font-semibold uppercase tracking-wider text-slate-400">
+                <h3 className="text-xs font-semibold uppercase tracking-[0.15em] text-midnight-200/40">
                   Instagram
                 </h3>
                 <a
                   href="https://www.instagram.com/unseenalineadores"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-1 text-lg font-medium text-slate-800 transition-colors hover:text-brand-600"
+                  className="mt-1 text-lg font-medium text-midnight-50 transition-colors hover:text-brand"
                 >
                   @unseenalineadores
                 </a>
@@ -110,13 +116,13 @@ export default function ContactForm() {
           </div>
 
           {/* Right: Form */}
-          <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-xl shadow-slate-200/50 lg:p-10">
+          <div className="rounded-3xl border border-white/5 bg-white/[0.03] p-8 lg:p-10">
             {status === 'success' ? (
               <div className="flex flex-col items-center justify-center py-12 text-center">
-                <CheckCircle size={48} className="mb-4 text-green-500" />
+                <CheckCircle size={48} className="mb-4 text-brand" />
                 <h3 className="heading-md">¡Mensaje enviado!</h3>
                 <p className="body-md mt-2">
-                  Te respondemos dentro de las 24hs. ¡Gracias!
+                  Te respondemos dentro de las 24hs.
                 </p>
                 <button
                   onClick={() => setStatus('idle')}
@@ -127,37 +133,24 @@ export default function ContactForm() {
               </div>
             ) : (
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
-                {/* Name */}
                 <div>
-                  <label
-                    htmlFor="name"
-                    className="mb-1.5 block text-sm font-medium text-slate-700"
-                  >
+                  <label htmlFor="name" className="mb-1.5 block text-sm font-medium text-midnight-200">
                     Nombre completo *
                   </label>
                   <input
                     id="name"
                     type="text"
                     {...register('name', { required: 'Ingresá tu nombre' })}
-                    className={clsx(
-                      'w-full rounded-xl border bg-slate-50 px-4 py-3 text-base text-slate-900 outline-none transition-all focus:border-brand-400 focus:bg-white focus:ring-2 focus:ring-brand-100',
-                      errors.name ? 'border-red-300' : 'border-slate-200'
-                    )}
+                    className={inputClasses(!!errors.name)}
                     placeholder="Tu nombre"
                   />
                   {errors.name && (
-                    <p className="mt-1 text-sm text-red-500">
-                      {errors.name.message}
-                    </p>
+                    <p className="mt-1 text-sm text-red-400">{errors.name.message}</p>
                   )}
                 </div>
 
-                {/* Email */}
                 <div>
-                  <label
-                    htmlFor="email"
-                    className="mb-1.5 block text-sm font-medium text-slate-700"
-                  >
+                  <label htmlFor="email" className="mb-1.5 block text-sm font-medium text-midnight-200">
                     Email *
                   </label>
                   <input
@@ -165,100 +158,69 @@ export default function ContactForm() {
                     type="email"
                     {...register('email', {
                       required: 'Ingresá tu email',
-                      pattern: {
-                        value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                        message: 'Email inválido',
-                      },
+                      pattern: { value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: 'Email inválido' },
                     })}
-                    className={clsx(
-                      'w-full rounded-xl border bg-slate-50 px-4 py-3 text-base text-slate-900 outline-none transition-all focus:border-brand-400 focus:bg-white focus:ring-2 focus:ring-brand-100',
-                      errors.email ? 'border-red-300' : 'border-slate-200'
-                    )}
+                    className={inputClasses(!!errors.email)}
                     placeholder="tu@email.com"
                   />
                   {errors.email && (
-                    <p className="mt-1 text-sm text-red-500">
-                      {errors.email.message}
-                    </p>
+                    <p className="mt-1 text-sm text-red-400">{errors.email.message}</p>
                   )}
                 </div>
 
-                {/* Phone */}
                 <div>
-                  <label
-                    htmlFor="phone"
-                    className="mb-1.5 block text-sm font-medium text-slate-700"
-                  >
+                  <label htmlFor="phone" className="mb-1.5 block text-sm font-medium text-midnight-200">
                     Teléfono / WhatsApp *
                   </label>
                   <input
                     id="phone"
                     type="tel"
-                    {...register('phone', {
-                      required: 'Ingresá tu teléfono',
-                    })}
-                    className={clsx(
-                      'w-full rounded-xl border bg-slate-50 px-4 py-3 text-base text-slate-900 outline-none transition-all focus:border-brand-400 focus:bg-white focus:ring-2 focus:ring-brand-100',
-                      errors.phone ? 'border-red-300' : 'border-slate-200'
-                    )}
+                    {...register('phone', { required: 'Ingresá tu teléfono' })}
+                    className={inputClasses(!!errors.phone)}
                     placeholder="+54 9 11 ..."
                   />
                   {errors.phone && (
-                    <p className="mt-1 text-sm text-red-500">
-                      {errors.phone.message}
-                    </p>
+                    <p className="mt-1 text-sm text-red-400">{errors.phone.message}</p>
                   )}
                 </div>
 
-                {/* Reason */}
                 <div>
-                  <label
-                    htmlFor="reason"
-                    className="mb-1.5 block text-sm font-medium text-slate-700"
-                  >
+                  <label htmlFor="reason" className="mb-1.5 block text-sm font-medium text-midnight-200">
                     Motivo de consulta
                   </label>
                   <select
                     id="reason"
                     {...register('reason')}
-                    className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-base text-slate-900 outline-none transition-all focus:border-brand-400 focus:bg-white focus:ring-2 focus:ring-brand-100"
+                    className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-base text-midnight-50 outline-none transition-all focus:border-brand/50 focus:bg-white/[0.08] focus:ring-2 focus:ring-brand/10"
                   >
-                    <option value="">Seleccioná una opción</option>
-                    <option value="Consulta inicial">Consulta inicial</option>
-                    <option value="Presupuesto">Pedir presupuesto</option>
-                    <option value="Info sobre alineadores">
-                      Info sobre alineadores
-                    </option>
-                    <option value="Otro">Otro</option>
+                    <option value="" className="bg-midnight-900">Seleccioná una opción</option>
+                    <option value="Consulta inicial" className="bg-midnight-900">Consulta inicial</option>
+                    <option value="Presupuesto" className="bg-midnight-900">Pedir presupuesto</option>
+                    <option value="Info sobre alineadores" className="bg-midnight-900">Info sobre alineadores</option>
+                    <option value="Otro" className="bg-midnight-900">Otro</option>
                   </select>
                 </div>
 
-                {/* Message */}
                 <div>
-                  <label
-                    htmlFor="message"
-                    className="mb-1.5 block text-sm font-medium text-slate-700"
-                  >
+                  <label htmlFor="message" className="mb-1.5 block text-sm font-medium text-midnight-200">
                     Mensaje (opcional)
                   </label>
                   <textarea
                     id="message"
                     rows={3}
                     {...register('message')}
-                    className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-base text-slate-900 outline-none transition-all focus:border-brand-400 focus:bg-white focus:ring-2 focus:ring-brand-100"
+                    className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-base text-midnight-50 outline-none transition-all placeholder:text-midnight-200/30 focus:border-brand/50 focus:bg-white/[0.08] focus:ring-2 focus:ring-brand/10"
                     placeholder="Contanos brevemente qué necesitás..."
                   />
                 </div>
 
-                {/* Error message */}
                 {status === 'error' && (
-                  <div className="flex items-center gap-2 rounded-lg bg-red-50 px-4 py-3 text-sm text-red-600">
+                  <div className="flex items-center gap-2 rounded-lg bg-red-400/10 px-4 py-3 text-sm text-red-400">
                     <AlertCircle size={18} />
                     Hubo un error. Intentá de nuevo o escribinos por WhatsApp.
                   </div>
                 )}
 
-                {/* Submit */}
                 <button
                   type="submit"
                   disabled={status === 'loading'}

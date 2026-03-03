@@ -35,38 +35,36 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
 
   return (
-    <section className="section-padding bg-white">
+    <section className="section-padding bg-midnight-900">
       <div className="container-narrow">
         <div className="mx-auto max-w-3xl">
           {/* Header */}
           <div className="text-center">
-            <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-brand-500">
+            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-brand">
               Preguntas frecuentes
             </p>
             <h2 className="heading-lg">
               Todo lo que necesitás{' '}
-              <span className="text-brand-600">saber</span>
+              <span className="italic text-gradient">saber</span>
             </h2>
           </div>
 
           {/* FAQ items */}
-          <div className="mt-12 divide-y divide-slate-100">
+          <div className="mt-12 divide-y divide-white/5">
             {faqs.map((faq, i) => (
               <div key={i}>
                 <button
-                  onClick={() =>
-                    setOpenIndex(openIndex === i ? null : i)
-                  }
+                  onClick={() => setOpenIndex(openIndex === i ? null : i)}
                   className="flex w-full items-center justify-between gap-4 py-5 text-left"
                 >
-                  <span className="text-base font-medium text-slate-900">
+                  <span className="text-base font-medium text-midnight-50">
                     {faq.q}
                   </span>
                   <ChevronDown
                     size={20}
                     className={clsx(
-                      'flex-shrink-0 text-slate-400 transition-transform duration-200',
-                      openIndex === i && 'rotate-180 text-brand-500'
+                      'flex-shrink-0 text-midnight-200/40 transition-all duration-300',
+                      openIndex === i && 'rotate-180 text-brand'
                     )}
                   />
                 </button>

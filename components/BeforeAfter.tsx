@@ -25,16 +25,16 @@ const testimonials = [
 
 export default function BeforeAfter() {
   return (
-    <section className="section-padding bg-gradient-to-b from-white to-slate-50">
+    <section className="section-padding bg-midnight-900">
       <div className="container-narrow">
         {/* Header */}
         <div className="mx-auto max-w-2xl text-center">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-brand-500">
+          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-accent">
             Casos reales
           </p>
           <h2 className="heading-lg">
             Lo que dicen nuestros{' '}
-            <span className="text-brand-600">pacientes</span>
+            <span className="italic text-gradient-gold">pacientes</span>
           </h2>
           <p className="body-lg mt-4">
             Historias reales de sonrisas transformadas con Unseen.
@@ -42,25 +42,25 @@ export default function BeforeAfter() {
         </div>
 
         {/* Testimonials */}
-        <div className="mt-16 grid gap-8 md:grid-cols-3">
+        <div className="mt-16 grid gap-6 md:grid-cols-3">
           {testimonials.map((t) => (
             <div
               key={t.name}
-              className="rounded-2xl border border-slate-100 bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-lg"
+              className="group rounded-2xl border border-white/5 bg-white/[0.03] p-8 transition-all duration-500 hover:border-accent/20 hover:bg-white/[0.06]"
             >
-              <Quote size={32} className="mb-4 text-brand-200" />
-              <p className="text-base leading-relaxed text-slate-700">
+              <Quote size={28} className="mb-4 text-accent/30" />
+              <p className="text-base leading-relaxed text-midnight-200">
                 &ldquo;{t.quote}&rdquo;
               </p>
-              <div className="mt-6 flex items-center gap-3 border-t border-slate-100 pt-4">
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-100 text-sm font-bold text-brand-600">
+              <div className="mt-6 flex items-center gap-3 border-t border-white/5 pt-4">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-accent/10 text-sm font-bold text-accent">
                   {t.name.charAt(0)}
                 </div>
                 <div>
-                  <p className="text-sm font-semibold text-slate-900">
+                  <p className="text-sm font-semibold text-midnight-50">
                     {t.name}
                   </p>
-                  <p className="text-xs text-slate-500">{t.detail}</p>
+                  <p className="text-xs text-midnight-200/60">{t.detail}</p>
                 </div>
               </div>
             </div>
@@ -69,14 +69,14 @@ export default function BeforeAfter() {
 
         {/* Instagram CTA */}
         <div className="mt-16 text-center">
-          <p className="mb-4 text-sm text-slate-500">
+          <p className="mb-4 text-sm text-midnight-200/60">
             Más casos y resultados en nuestro Instagram
           </p>
           <a
             href="https://www.instagram.com/unseenalineadores"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full border-2 border-pink-300 px-6 py-3 text-sm font-semibold text-pink-600 transition-all hover:bg-pink-50"
+            className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm font-semibold text-midnight-50 transition-all duration-300 hover:border-white/20 hover:bg-white/10"
           >
             <Instagram size={18} />
             @unseenalineadores

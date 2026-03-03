@@ -4,15 +4,15 @@ export default function Footer() {
   const year = new Date().getFullYear()
 
   return (
-    <footer className="border-t border-slate-100 bg-slate-950 text-white">
+    <footer className="border-t border-white/5 bg-midnight-950">
       <div className="container-narrow section-padding pb-8">
         <div className="grid gap-12 md:grid-cols-3">
           {/* Brand */}
           <div>
-            <span className="font-display text-2xl font-bold text-brand-400">
+            <span className="font-display text-2xl font-bold italic text-midnight-50">
               unseen
             </span>
-            <p className="mt-4 text-sm leading-relaxed text-slate-400">
+            <p className="mt-4 text-sm leading-relaxed text-midnight-200/60">
               Alineadores invisibles diseñados a medida. Transformamos sonrisas
               en Recoleta, Buenos Aires.
             </p>
@@ -20,27 +20,27 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="mb-4 text-sm font-semibold uppercase tracking-widest text-slate-400">
+            <h3 className="mb-4 text-xs font-semibold uppercase tracking-[0.15em] text-midnight-200/40">
               Contacto
             </h3>
-            <ul className="space-y-3 text-sm text-slate-300">
+            <ul className="space-y-3 text-sm text-midnight-200/60">
               <li>
                 <a
                   href="https://wa.me/5491131793649"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 transition-colors hover:text-brand-400"
+                  className="flex items-center gap-2 transition-colors hover:text-brand"
                 >
-                  <Phone size={16} />
+                  <Phone size={14} />
                   +54 9 11 3179-3649
                 </a>
               </li>
               <li>
                 <a
                   href="mailto:unseenaligners@gmail.com"
-                  className="flex items-center gap-2 transition-colors hover:text-brand-400"
+                  className="flex items-center gap-2 transition-colors hover:text-brand"
                 >
-                  <Mail size={16} />
+                  <Mail size={14} />
                   unseenaligners@gmail.com
                 </a>
               </li>
@@ -49,14 +49,14 @@ export default function Footer() {
                   href="https://www.instagram.com/unseenalineadores"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 transition-colors hover:text-brand-400"
+                  className="flex items-center gap-2 transition-colors hover:text-brand"
                 >
-                  <Instagram size={16} />
+                  <Instagram size={14} />
                   @unseenalineadores
                 </a>
               </li>
-              <li className="flex items-center gap-2 text-slate-400">
-                <MapPin size={16} />
+              <li className="flex items-center gap-2">
+                <MapPin size={14} />
                 Recoleta, Buenos Aires
               </li>
             </ul>
@@ -64,23 +64,20 @@ export default function Footer() {
 
           {/* Quick links */}
           <div>
-            <h3 className="mb-4 text-sm font-semibold uppercase tracking-widest text-slate-400">
+            <h3 className="mb-4 text-xs font-semibold uppercase tracking-[0.15em] text-midnight-200/40">
               Navegación
             </h3>
-            <ul className="space-y-2 text-sm text-slate-300">
+            <ul className="space-y-2 text-sm text-midnight-200/60">
               {[
                 ['Inicio', '#inicio'],
-                ['Tratamientos', '#tratamientos'],
+                ['Tratamiento', '#tratamientos'],
                 ['Proceso', '#proceso'],
                 ['Planes', '#planes'],
-                ['Sobre Mí', '#sobre-mi'],
+                ['Nosotros', '#sobre-mi'],
                 ['Contacto', '#contacto'],
               ].map(([label, href]) => (
                 <li key={href}>
-                  <a
-                    href={href}
-                    className="transition-colors hover:text-brand-400"
-                  >
+                  <a href={href} className="transition-colors hover:text-brand">
                     {label}
                   </a>
                 </li>
@@ -89,8 +86,8 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom bar */}
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-slate-800 pt-8 text-xs text-slate-500 md:flex-row">
+        {/* Bottom */}
+        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/5 pt-8 text-xs text-midnight-200/30 md:flex-row">
           <p>&copy; {year} Unseen Alineadores. Todos los derechos reservados.</p>
           <p>Mat. 42.671 | Recoleta, Buenos Aires, Argentina</p>
         </div>

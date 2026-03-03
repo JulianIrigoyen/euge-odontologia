@@ -13,9 +13,9 @@ const steps = [
   {
     number: '02',
     icon: ScanLine,
-    title: 'Escaneo Digital',
+    title: 'Escaneo Digital 3D',
     description:
-      'Escaneamos tus dientes en 3D. Diseñamos tu plan de tratamiento y te mostramos el resultado final.',
+      'Escaneamos tus dientes en 3D. Diseñamos tu plan y te mostramos el resultado final.',
   },
   {
     number: '03',
@@ -29,24 +29,21 @@ const steps = [
     icon: PartyPopper,
     title: 'Sonrisa Nueva',
     description:
-      'Disfrutá tu nueva sonrisa. Resultados visibles desde los primeros meses de tratamiento.',
+      'Disfrutá tu nueva sonrisa. Resultados visibles desde los primeros meses.',
   },
 ]
 
 export default function Process() {
   return (
-    <section
-      id="proceso"
-      className="section-padding bg-gradient-to-b from-slate-50 to-white"
-    >
+    <section id="proceso" className="section-padding bg-midnight-900">
       <div className="container-narrow">
         {/* Header */}
         <div className="mx-auto max-w-2xl text-center">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-brand-500">
+          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-brand">
             Simple y efectivo
           </p>
           <h2 className="heading-lg">
-            ¿Cómo <span className="text-brand-600">funciona</span>?
+            ¿Cómo <span className="italic text-gradient">funciona</span>?
           </h2>
           <p className="body-lg mt-4">
             En 4 pasos simples empezás tu camino hacia la sonrisa que siempre
@@ -55,23 +52,20 @@ export default function Process() {
         </div>
 
         {/* Steps */}
-        <div className="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-          {steps.map((step, i) => (
-            <div key={step.number} className="relative text-center">
-              {/* Connector line (desktop) */}
-              {i < steps.length - 1 && (
-                <div className="absolute left-[calc(50%+40px)] right-[calc(-50%+40px)] top-10 hidden h-px bg-gradient-to-r from-brand-300 to-brand-100 lg:block" />
-              )}
-
-              {/* Icon circle */}
-              <div className="relative mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-brand-50 ring-4 ring-white">
-                <step.icon size={32} className="text-brand-500" />
-                <span className="absolute -right-1 -top-1 flex h-7 w-7 items-center justify-center rounded-full bg-brand-500 text-xs font-bold text-white">
+        <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          {steps.map((step) => (
+            <div key={step.number} className="group text-center">
+              {/* Icon */}
+              <div className="relative mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-2xl border border-white/10 bg-white/5 transition-all duration-500 group-hover:border-brand/30 group-hover:bg-brand/10 group-hover:shadow-lg group-hover:shadow-brand/10">
+                <step.icon size={28} className="text-brand transition-colors" />
+                <span className="absolute -right-2 -top-2 flex h-7 w-7 items-center justify-center rounded-full bg-accent text-xs font-bold text-midnight-900">
                   {step.number}
                 </span>
               </div>
 
-              <h3 className="heading-md text-lg">{step.title}</h3>
+              <h3 className="font-display text-lg font-semibold text-midnight-50">
+                {step.title}
+              </h3>
               <p className="body-md mt-2">{step.description}</p>
             </div>
           ))}

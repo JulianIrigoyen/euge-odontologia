@@ -9,8 +9,8 @@ export default function WhatsAppButton() {
   const [tooltip, setTooltip] = useState(true)
 
   useEffect(() => {
-    const timer = setTimeout(() => setVisible(true), 2000)
-    const tooltipTimer = setTimeout(() => setTooltip(false), 8000)
+    const timer = setTimeout(() => setVisible(true), 2500)
+    const tooltipTimer = setTimeout(() => setTooltip(false), 9000)
     return () => {
       clearTimeout(timer)
       clearTimeout(tooltipTimer)
@@ -23,16 +23,15 @@ export default function WhatsAppButton() {
     <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
       {/* Tooltip */}
       {tooltip && (
-        <div className="relative flex items-center gap-2 rounded-xl bg-white px-4 py-3 text-sm font-medium text-slate-700 shadow-xl animate-fade-in">
-          ¿Tenés alguna consulta? Escribinos
+        <div className="relative flex items-center gap-2 rounded-xl border border-white/10 bg-midnight-600 px-4 py-3 text-sm font-medium text-midnight-50 shadow-2xl animate-fade-in backdrop-blur-md">
+          ¿Tenés alguna consulta?
           <button
             onClick={() => setTooltip(false)}
-            className="ml-1 text-slate-400 hover:text-slate-600"
+            className="ml-1 text-midnight-200/40 hover:text-midnight-50"
           >
             <X size={14} />
           </button>
-          {/* Arrow */}
-          <div className="absolute -bottom-2 right-6 h-4 w-4 rotate-45 bg-white shadow-xl" />
+          <div className="absolute -bottom-2 right-6 h-4 w-4 rotate-45 border-b border-r border-white/10 bg-midnight-600" />
         </div>
       )}
 

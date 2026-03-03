@@ -10,11 +10,11 @@
   }
 
   body {
-    @apply bg-white text-slate-800;
+    @apply bg-midnight-900 text-midnight-50;
   }
 
   ::selection {
-    @apply bg-brand-200 text-brand-900;
+    @apply bg-brand/30 text-white;
   }
 }
 
@@ -27,32 +27,58 @@
     @apply mx-auto max-w-6xl;
   }
 
+  /* Dark section headings */
   .heading-xl {
-    @apply font-display text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl lg:text-6xl;
+    @apply font-display text-4xl font-bold tracking-tight text-midnight-50 sm:text-5xl lg:text-7xl;
   }
 
   .heading-lg {
-    @apply font-display text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl;
+    @apply font-display text-3xl font-bold tracking-tight text-midnight-50 sm:text-4xl lg:text-5xl;
   }
 
   .heading-md {
-    @apply font-display text-2xl font-semibold tracking-tight text-slate-900;
+    @apply font-display text-2xl font-semibold tracking-tight text-midnight-50;
+  }
+
+  /* Light section headings */
+  .heading-xl-dark {
+    @apply font-display text-4xl font-bold tracking-tight text-midnight-900 sm:text-5xl lg:text-7xl;
+  }
+
+  .heading-lg-dark {
+    @apply font-display text-3xl font-bold tracking-tight text-midnight-900 sm:text-4xl lg:text-5xl;
+  }
+
+  .heading-md-dark {
+    @apply font-display text-2xl font-semibold tracking-tight text-midnight-900;
   }
 
   .body-lg {
-    @apply text-lg leading-relaxed text-slate-600;
+    @apply text-lg leading-relaxed text-midnight-200;
   }
 
   .body-md {
-    @apply text-base leading-relaxed text-slate-600;
+    @apply text-base leading-relaxed text-midnight-200;
+  }
+
+  .body-lg-dark {
+    @apply text-lg leading-relaxed text-midnight-300;
+  }
+
+  .body-md-dark {
+    @apply text-base leading-relaxed text-midnight-300;
   }
 
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-full bg-brand-500 px-8 py-3.5 text-base font-semibold text-white shadow-lg shadow-brand-500/25 transition-all duration-300 hover:bg-brand-600 hover:shadow-xl hover:shadow-brand-500/30 hover:-translate-y-0.5 active:translate-y-0;
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-brand px-8 py-3.5 text-base font-semibold text-midnight-900 shadow-lg shadow-brand/20 transition-all duration-300 hover:bg-brand-300 hover:shadow-xl hover:shadow-brand/30 hover:-translate-y-0.5 active:translate-y-0;
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center gap-2 rounded-full border-2 border-brand-500 px-8 py-3 text-base font-semibold text-brand-600 transition-all duration-300 hover:bg-brand-50 hover:-translate-y-0.5 active:translate-y-0;
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-midnight-200/30 px-8 py-3 text-base font-semibold text-midnight-50 transition-all duration-300 hover:bg-white/5 hover:border-midnight-200/50 hover:-translate-y-0.5 active:translate-y-0;
+  }
+
+  .btn-accent {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-accent px-8 py-3.5 text-base font-semibold text-midnight-900 shadow-lg shadow-accent/20 transition-all duration-300 hover:bg-accent-light hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0;
   }
 
   .btn-whatsapp {
@@ -60,7 +86,11 @@
   }
 
   .glass-card {
-    @apply rounded-2xl border border-white/20 bg-white/80 p-6 shadow-xl backdrop-blur-sm;
+    @apply rounded-2xl border border-white/10 bg-white/5 p-6 shadow-xl backdrop-blur-md;
+  }
+
+  .glass-card-light {
+    @apply rounded-2xl border border-midnight-900/5 bg-white p-6 shadow-xl shadow-midnight-900/5;
   }
 }
 
@@ -69,14 +99,11 @@
     text-wrap: balance;
   }
 
-  .animate-on-scroll {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  .text-gradient {
+    @apply bg-gradient-to-r from-brand to-brand-300 bg-clip-text text-transparent;
   }
 
-  .animate-on-scroll.is-visible {
-    opacity: 1;
-    transform: translateY(0);
+  .text-gradient-gold {
+    @apply bg-gradient-to-r from-accent-dark via-accent to-accent-light bg-clip-text text-transparent;
   }
 }

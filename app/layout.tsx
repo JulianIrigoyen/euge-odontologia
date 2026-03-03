@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Inter, Poppins } from 'next/font/google'
+import { Inter, Playfair_Display } from 'next/font/google'
 import './globals.css'
 
 const inter = Inter({
@@ -8,10 +8,10 @@ const inter = Inter({
   display: 'swap',
 })
 
-const poppins = Poppins({
+const playfair = Playfair_Display({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
-  variable: '--font-poppins',
+  variable: '--font-playfair',
   display: 'swap',
 })
 
@@ -85,7 +85,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="es" className={`${inter.variable} ${poppins.variable}`}>
+    <html lang="es" className={`${inter.variable} ${playfair.variable}`}>
       <head>
         <meta name="geo.region" content="AR-C" />
         <meta name="geo.placename" content="Recoleta, Buenos Aires" />
