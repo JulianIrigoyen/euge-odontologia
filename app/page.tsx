@@ -4,7 +4,7 @@ import Services from '@/components/Services'
 import Process from '@/components/Process'
 import Pricing from '@/components/Pricing'
 import BeforeAfter from '@/components/BeforeAfter'
-import About from '@/components/About'
+import Team from '@/components/Team'
 import FAQ from '@/components/FAQ'
 import CTABanner from '@/components/CTABanner'
 import ContactForm from '@/components/ContactForm'
@@ -22,7 +22,7 @@ export default function Home() {
         <Process />
         <Pricing />
         <BeforeAfter />
-        <About />
+        <Team />
         <FAQ />
         <CTABanner />
         <ContactForm />

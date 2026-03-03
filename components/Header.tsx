@@ -9,7 +9,7 @@ const navLinks = [
   { label: 'Tratamiento', href: '#tratamientos' },
   { label: 'Proceso', href: '#proceso' },
   { label: 'Planes', href: '#planes' },
-  { label: 'Nosotros', href: '#sobre-mi' },
+  { label: 'Equipo', href: '#equipo' },
   { label: 'Contacto', href: '#contacto' },
   { label: 'Ubicación', href: '#ubicacion' },
 ]
@@ -68,7 +68,7 @@ export default function Header() {
         {/* Mobile toggle */}
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
-          className="rounded-lg p-2 text-midnight-200 transition-colors hover:text-brand md:hidden"
+          className="rounded-lg p-2.5 text-midnight-200 transition-colors hover:text-brand md:hidden"
           aria-label="Toggle menu"
         >
           {mobileOpen ? <X size={24} /> : <Menu size={24} />}
@@ -89,7 +89,7 @@ export default function Header() {
                 <a
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className="block rounded-lg px-4 py-3 text-base font-medium text-midnight-200 transition-colors hover:bg-white/5 hover:text-brand"
+                  className="block rounded-lg px-4 py-4 text-base font-medium text-midnight-200 transition-colors hover:bg-white/5 hover:text-brand"
                 >
                   {link.label}
                 </a>

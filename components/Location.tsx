@@ -33,7 +33,7 @@ export default function Location() {
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              className="h-[350px] w-full lg:h-[420px]"
+              className="h-[300px] w-full md:h-[350px] lg:h-[420px]"
             />
           </div>
 
@@ -59,7 +59,7 @@ export default function Location() {
                   href={`https://www.google.com/maps/search/?api=1&query=${COORDS.lat},${COORDS.lng}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 rounded-full bg-white/5 px-4 py-2 text-sm font-medium text-midnight-50 transition-all hover:bg-white/10"
+                  className="inline-flex items-center gap-1.5 rounded-full bg-white/5 px-4 py-2.5 text-sm font-medium text-midnight-50 transition-all hover:bg-white/10"
                 >
                   Google Maps
                   <ExternalLink size={14} />
@@ -68,7 +68,7 @@ export default function Location() {
                   href={`https://waze.com/ul?ll=${COORDS.lat},${COORDS.lng}&navigate=yes`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 rounded-full bg-white/5 px-4 py-2 text-sm font-medium text-midnight-50 transition-all hover:bg-white/10"
+                  className="inline-flex items-center gap-1.5 rounded-full bg-white/5 px-4 py-2.5 text-sm font-medium text-midnight-50 transition-all hover:bg-white/10"
                 >
                   Waze
                   <Navigation size={14} />
